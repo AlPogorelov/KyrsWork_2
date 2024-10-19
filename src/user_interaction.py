@@ -32,12 +32,3 @@ def user_interaction():
 
     if saver.lower() in ['lf', 'да', 'yes']:
         json_saver.add_vacancies(sorted_vac[:top_n])
-
-
-
-
-
-
-
-
-

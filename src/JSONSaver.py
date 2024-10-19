@@ -10,7 +10,6 @@ class Abstractclass(ABC):
     def add_vacancy(self, vacancy):
         pass
 
-
     @abstractmethod
     def del_vacancy(self, vacancy):
         pass
@@ -18,18 +17,16 @@ class Abstractclass(ABC):
 
 class JSONSaver(Abstractclass):
 
-    def clear_json_file(self):
-        data = []
-        with open('./data/vacancies_json.json', 'w', encoding='utf-8') as f:
+    @staticmethod
+    def clear_json_file():
+
+        with open('./data/vacancies_json.json', 'w', encoding='utf-8'):
             pass
-
-
 
     def __init__(self, file_name='./data/vacancies_json.json'):
         """Инициализатор класса JSONSaver"""
         full_file_name = os.path.abspath(file_name)
         self.file_path = full_file_name
-
 
     @staticmethod
     def save_to_file(vacancies=[]):
@@ -87,6 +84,3 @@ class JSONSaver(Abstractclass):
 
         for i in vacancies:
             self.add_vacancy(i)
-        #
-        # self.save_to_file(data)
-

@@ -1,12 +1,10 @@
-import json
 from abc import ABC
 
 import requests
 
 
-
-
 class AbstractHeadHunter(ABC):
+
     def connect_API(self):
         pass
 
@@ -38,4 +36,3 @@ class HeadHunterAPI(AbstractHeadHunter):
         response = self.connect_API()
         vacancie = response.json()['items']
         return vacancie
-

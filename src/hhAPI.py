@@ -1,4 +1,4 @@
-from abc import ABC, abstractmethod
+from abc import ABC
 
 import requests
 
@@ -7,7 +7,6 @@ class AbstractAPIConnector(ABC):
 
     def __init__(self):
         pass
-
 
 
 class HeadHunterAPI(AbstractAPIConnector):
@@ -55,10 +54,11 @@ class HeadHunterAPI(AbstractAPIConnector):
                 salary = f'{vacancies["salary"]["from"]} .{vacancies["salary"]["currency"]}'
 
             else:
-                salary = f'{vacancies["salary"]["from"]} - {vacancies["salary"]["to"]} .{vacancies["salary"]["currency"]}'
+                salary = (f'{vacancies["salary"]["from"]} -'
+                          f' {vacancies["salary"]["to"]} .{vacancies["salary"]["currency"]}')
 
-            vacancies_data = {'name':vacancies['name'],
-                              'salary' : salary,
+            vacancies_data = {'name': vacancies['name'],
+                              'salary': salary,
                               'url': vacancies['alternate_url'],
                               'responsibility': vacancies['snippet']['responsibility']}
 

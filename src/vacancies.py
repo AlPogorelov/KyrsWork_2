@@ -8,7 +8,6 @@ class Vacancy:
         self.requirement = requirement
         self.responsibility = responsibility
 
-
     @classmethod
     def cast_to_object_list(cls, json_vacancies):
         vacancies_list = []
@@ -62,7 +61,6 @@ class Vacancy:
             'responsibility': self.responsibility,
             'requirement': self.requirement
         })
-
 
     def __eq__(self, other) -> bool:
         """Метод сравнения вакансий (=)"""
