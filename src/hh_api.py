@@ -12,17 +12,19 @@ class AbstractHeadHunter(ABC):
 class HeadHunterAPI(AbstractHeadHunter):
 
     def __init__(self):
-        self.__url = 'https://api.hh.ru/vacancies'
-        self.__headers = {'User-Agent': 'HH-User-Agent'}
-        self.__params = {'text': '', 'page': 0, 'per_page': 20}
+        self.__url = "https://api.hh.ru/vacancies"
+        self.__headers = {"User-Agent": "HH-User-Agent"}
+        self.__params = {"text": "", "page": 0, "per_page": 20}
         self.vacancies = []
 
     def connect_API(self):
         try:
-            response = requests.get(self.__url, headers=self.__headers, params=self.__params)
+            response = requests.get(
+                self.__url, headers=self.__headers, params=self.__params
+            )
             if response != 200:
 
-                print(f'Ошибка запроса API: {response.status_code}')
+                print(f"Ошибка запроса API: {response.status_code}")
 
             return response
 
@@ -32,7 +34,7 @@ class HeadHunterAPI(AbstractHeadHunter):
             return None
 
     def get_vacancies(self, keyword):
-        self.__params['text'] = keyword
+        self.__params["text"] = keyword
         response = self.connect_API()
-        vacancie = response.json()['items']
+        vacancie = response.json()["items"]
         return vacancie

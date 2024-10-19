@@ -1,6 +1,6 @@
+import json
 import os
 from abc import ABC, abstractmethod
-import json
 from json import JSONDecodeError
 
 
@@ -20,10 +20,10 @@ class JSONSaver(Abstractclass):
     @staticmethod
     def clear_json_file():
 
-        with open('./data/vacancies_json.json', 'w', encoding='utf-8'):
+        with open("./data/vacancies_json.json", "w", encoding="utf-8"):
             pass
 
-    def __init__(self, file_name='./data/vacancies_json.json'):
+    def __init__(self, file_name="./data/vacancies_json.json"):
         """Инициализатор класса JSONSaver"""
         full_file_name = os.path.abspath(file_name)
         self.file_path = full_file_name
@@ -31,18 +31,18 @@ class JSONSaver(Abstractclass):
     @staticmethod
     def save_to_file(vacancies=[]):
 
-        with open('./data/vacancies_json.json', 'w', encoding='utf-8') as f:
+        with open("./data/vacancies_json.json", "w", encoding="utf-8") as f:
             json.dump(vacancies, f, ensure_ascii=False, indent=4)
 
     @staticmethod
     def save_to_reserve_file(vacancies):
 
-        with open('./data/reserve_vacancies_json.json', 'w', encoding='utf-8') as f:
+        with open("./data/reserve_vacancies_json.json", "w", encoding="utf-8") as f:
             json.dump(vacancies, f, ensure_ascii=False, indent=4)
 
     def read_file_json(self):
         try:
-            with open(self.file_path, 'r', encoding='utf-8') as f:
+            with open(self.file_path, "r", encoding="utf-8") as f:
                 data = json.load(f)
                 if data is None:
                     data = []
@@ -60,7 +60,7 @@ class JSONSaver(Abstractclass):
 
         self.save_to_reserve_file(data)
 
-        if vacancy.url not in [dat.get('url') for dat in data]:
+        if vacancy.url not in [dat.get("url") for dat in data]:
 
             data.append(vacancy.to_dict())
 

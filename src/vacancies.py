@@ -1,5 +1,5 @@
 class Vacancy:
-    __slots__ = ('name', 'salary', 'url', 'requirement', 'responsibility')
+    __slots__ = ("name", "salary", "url", "requirement", "responsibility")
 
     def __init__(self, name, salary, url, requirement, responsibility):
         self.name = name
@@ -22,8 +22,10 @@ class Vacancy:
 
                     if vacancy.get("salary").get("to"):
 
-                        salary_get = (f'{vacancy.get("salary").get("from")} -'
-                                      f' {vacancy.get("salary").get("to")} .{vacancy.get("salary").get("currency")}')
+                        salary_get = (
+                            f'{vacancy.get("salary").get("from")} -'
+                            f' {vacancy.get("salary").get("to")} .{vacancy.get("salary").get("currency")}'
+                        )
 
                     else:
                         salary_get = f'{vacancy.get("salary").get("from")} .{vacancy.get("salary").get("currency")}'
@@ -37,7 +39,7 @@ class Vacancy:
                 "url": url,
                 "requirement": requirement,
                 "responsibility": responsibility,
-                "salary": salary
+                "salary": salary,
             }
 
             vacancies_list.append(Vacancy(**vac))
@@ -46,21 +48,23 @@ class Vacancy:
 
     def to_dict(self):
         return {
-            'name': self.name,
-            'url': self.url,
-            'salary': self.salary,
-            'responsibility': self.responsibility,
-            'requirement': self.requirement
+            "name": self.name,
+            "url": self.url,
+            "salary": self.salary,
+            "responsibility": self.responsibility,
+            "requirement": self.requirement,
         }
 
     def print_vac(self):
-        print({
-            'name': self.name,
-            'url': self.url,
-            'salary': self.salary,
-            'responsibility': self.responsibility,
-            'requirement': self.requirement
-        })
+        print(
+            {
+                "name": self.name,
+                "url": self.url,
+                "salary": self.salary,
+                "responsibility": self.responsibility,
+                "requirement": self.requirement,
+            }
+        )
 
     def __eq__(self, other) -> bool:
         """Метод сравнения вакансий (=)"""

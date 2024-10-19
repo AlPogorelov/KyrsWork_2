@@ -1,6 +1,6 @@
-from src.JSONSaver import JSONSaver
 from src.hh_api import HeadHunterAPI
-from src.utils_def import sorted_to_keyword, print_top_n
+from src.JSONSaver import JSONSaver
+from src.utils_def import print_top_n, sorted_to_keyword
 from src.vacancies import Vacancy
 
 
@@ -18,7 +18,9 @@ def user_interaction():
 
     top_n = int(input("Введите количество вакансий для вывода в топ N: "))
 
-    filter_words = input("Введите ключевые слова для фильтрации вакансий по требованиям: ").split()
+    filter_words = input(
+        "Введите ключевые слова для фильтрации вакансий по требованиям: "
+    ).split()
 
     hh_vacancies = hh_api.get_vacancies(search_query)
 
@@ -28,7 +30,7 @@ def user_interaction():
 
     print_top_n(sorted_vac, top_n)
 
-    saver = str(input('Сохранить результат в JSON?'))
+    saver = str(input("Сохранить результат в JSON?"))
 
-    if saver.lower() in ['lf', 'да', 'yes']:
+    if saver.lower() in ["lf", "да", "yes"]:
         json_saver.add_vacancies(sorted_vac[:top_n])
