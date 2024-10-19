@@ -20,11 +20,18 @@ class HeadHunterAPI(AbstractHeadHunter):
         self.vacancies = []
 
     def connect_API(self):
-        response = requests.get(self.__url, headers=self.__headers, params=self.__params)
-        if response == 200:
-            print('Ошибка запроса API')
+        try:
+            response = requests.get(self.__url, headers=self.__headers, params=self.__params)
+            if response != 200:
 
-        return response
+                print(f'Ошибка запроса API: {response.status_code}')
+
+            return response
+
+        except requests.exceptions.RequestException as e:
+            # Обработка ошибок запроса
+            print(f"Ошибка при выполнении запроса: {e}")
+            return None
 
     def get_vacancies(self, keyword):
         self.__params['text'] = keyword

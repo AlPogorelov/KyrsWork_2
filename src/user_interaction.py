@@ -1,4 +1,3 @@
-from src import hh_api
 from src.JSONSaver import JSONSaver
 from src.hh_api import HeadHunterAPI
 from src.utils_def import sorted_to_keyword, print_top_n

@@ -1,8 +1,3 @@
-from src.JSONSaver import JSONSaver
-from src.hh_api import HeadHunterAPI
-from src.vacancies import Vacancy
-
-
 def sorted_to_keyword(vacancies_list, key_word):
     '''Соритровать словарь с вакансиями по ключевым словам в требовании вакансии'''
 

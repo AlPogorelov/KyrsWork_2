@@ -2,7 +2,6 @@ import os
 from abc import ABC, abstractmethod
 import json
 from json import JSONDecodeError
-from src.vacancies import Vacancy
 
 
 class Abstractclass(ABC):
