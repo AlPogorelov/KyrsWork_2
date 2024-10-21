@@ -76,5 +76,3 @@ class Vacancy:
     def __le__(self, other) -> bool:
         """Метод сравнения вакансий (<=)"""
         return self.salary_from <= other.salary_from
-
-

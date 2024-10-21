@@ -50,4 +50,3 @@ def user_interaction():
 
         if json_saver.read_file_json() == []:
             print("По данным притериям вакансии не найдены")
-

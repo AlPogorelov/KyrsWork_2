@@ -12,9 +12,11 @@ def filter_to_keyword(vacancies_list, key_word):
 
     return filter_to
 
+
 def sorted_salary(vacancies_list):
     '''Сортировка зарплаты по убыванию'''
     return sorted(vacancies_list, key=lambda vac: vac.salary_from)
+
 
 def print_top_n(sorted_list, top_n):
 
