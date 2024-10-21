@@ -7,7 +7,8 @@ from src.vacancies import Vacancy
 def first_vacancies():
     return Vacancy(
         name='python',
-        salary='1000-1500.RUR',
+        salary_from=1000,
+        salary_to=1500,
         url='url',
         requirement='requirement',
         responsibility='responsibility'
@@ -17,7 +18,8 @@ def first_vacancies():
 def clone_first_vacancies():
     return Vacancy(
         name='python',
-        salary='1000-1500.RUR',
+        salary_from=1000,
+        salary_to=1500,
         url='url',
         requirement='requirement',
         responsibility='responsibility'
@@ -28,7 +30,8 @@ def clone_first_vacancies():
 def second_vacancies():
     return Vacancy(
         name='python',
-        salary='2000-5000.RUR',
+        salary_from=2000,
+        salary_to=2500,
         url='url',
         requirement='requirement1',
         responsibility='responsibility1'
@@ -38,7 +41,7 @@ def second_vacancies():
 @pytest.fixture
 def json_vacancies():
     return [{'name': '1',
-            'salary': {'from': 1, 'to': None, 'currency': 'RUR', 'gross': False},
+            'salary': {'from': 1, 'to': 1, 'currency': 'RUR', 'gross': False},
              'url': 'https://api.hh.ru/vacancies/108620069?host=hh.ru', 'alternate_url': '1',
              'snippet': {'requirement': '1', 'responsibility': '1'}}
             ]
