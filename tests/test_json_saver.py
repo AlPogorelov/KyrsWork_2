@@ -9,7 +9,7 @@ from src.vacancies import Vacancy
 
 
 
-def test_save_to_file(file_name='./test_vacancies.json'):
+def test_save_to_file(file_name='./tests/test_vacancies.json'):
     full_file_name = os.path.abspath(file_name)
     saver = JSONSaver(full_file_name)
     saver.save_to_file(['test'])
@@ -21,7 +21,7 @@ def test_save_to_file(file_name='./test_vacancies.json'):
 
 
 
-def test_read_file_json(file_name='./test_vacancies.json'):
+def test_read_file_json(file_name='./tests/test_vac.json'):
 
     full_file_name = os.path.abspath(file_name)
     with open(full_file_name, 'r', encoding='utf-8') as f:
