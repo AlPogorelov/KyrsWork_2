@@ -1,5 +1,6 @@
 
 def filter_to_keyword(vacancies_list, key_word):
+    '''Фильтрация вакансий по ключевым слвоам в требованиях'''
     filter_to = []
     for key in key_word:
         for vac in vacancies_list:
@@ -16,6 +17,7 @@ def sorted_salary(vacancies_list):
 
 
 def print_top_n(sorted_list, top_n):
+    '''Вывод к консоль топ-н'''
 
     for vac in sorted_list[:top_n]:
         print(vac)

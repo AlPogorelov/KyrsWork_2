@@ -30,6 +30,7 @@ class Abstractclass(ABC):
 class JSONSaver(Abstractclass):
 
     def clear_json_file(self):
+        '''Метод удаляет JSON файл'''
 
         with open(self.file_path, "w", encoding="utf-8"):
             pass
