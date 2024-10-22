@@ -1,6 +1,3 @@
-def sorted_to_salary(vacancies_list):
-    """Соритровать словарь с вакансиями по ключевым словам в требовании вакансии"""
-
 
 def filter_to_keyword(vacancies_list, key_word):
     filter_to = []
@@ -15,7 +12,7 @@ def filter_to_keyword(vacancies_list, key_word):
 
 def sorted_salary(vacancies_list):
     '''Сортировка зарплаты по убыванию'''
-    return sorted(vacancies_list, key=lambda vac: vac.salary_from)
+    return sorted(vacancies_list, reverse=True)
 
 
 def print_top_n(sorted_list, top_n):

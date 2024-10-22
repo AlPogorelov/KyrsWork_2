@@ -12,17 +12,17 @@ def user_interaction():
 
     json_saver.clear_json_file()
 
-    platforms = ["HeadHunter"]
+    # platforms = ["HeadHunter"]
 
     search_query = input("Введите поисковый запрос: ")
+
+    hh_vacancies = hh_api.get_vacancies(search_query)
 
     top_n = int(input("Введите количество вакансий для вывода в топ N: "))
 
     filter_words = input(
         "Введите ключевые слова для сортировки вакансий в требованиях: "
     ).split()
-
-    hh_vacancies = hh_api.get_vacancies(search_query)
 
     vacancies_list = Vacancy.cast_to_object_list(hh_vacancies)
 

@@ -18,6 +18,14 @@ class Abstractclass(ABC):
     def add_vacancies(self, vacancy):
         pass
 
+    @abstractmethod
+    def clear_json_file(self):
+        pass
+
+    @abstractmethod
+    def read_file_json(self):
+        pass
+
 
 class JSONSaver(Abstractclass):
 

@@ -5,10 +5,6 @@ import requests
 
 class AbstractHeadHunter(ABC):
 
-    # @abstractmethod
-    # def connect_API(self):
-    #     pass
-
     @abstractmethod
     def get_vacancies(self, *args):
         pass
@@ -23,6 +19,7 @@ class HeadHunterAPI(AbstractHeadHunter):
         self.vacancies = []
 
     def __connect_API(self):
+        '''Модель подключения к API и обработка ошибок запроса'''
         try:
             response = requests.get(
                 self.__url, headers=self.__headers, params=self.__params
@@ -39,6 +36,7 @@ class HeadHunterAPI(AbstractHeadHunter):
             return None
 
     def get_vacancies(self, keyword):
+        '''В параметры API запроса добавляет клбчевое слово, и получает JSON ответ по ключевым параметрам запроса'''
         self.__params["text"] = keyword
         response = self.__connect_API()
         vacancie = response.json()["items"]
